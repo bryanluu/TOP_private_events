@@ -1,4 +1,15 @@
-<br><br>
 <h1 class="title">User</h1>
-<h2 class="content"><strong>Name:</strong> <%= current_user.name %></h2>
-<h2 class="content"><strong>Email:</strong> <%= current_user.email %></h2>
+<p class="content"><strong>Name:</strong> <%= current_user.name %></h2>
+<p class="content"><strong>Email:</strong> <%= current_user.email %></h2>
+<br>
+<br>
+<h1 class="subtitle"><strong>Events</strong></h2>
+<% if current_user.events.count > 0 %>
+  <ul>
+    <% current_user.events.each do |event| %>
+      <li><%= event.title %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p class="content">No events</p>
+<% end %>

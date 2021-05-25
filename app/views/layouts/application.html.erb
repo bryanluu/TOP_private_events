@@ -35,7 +35,7 @@
         <div class="navbar-end">
           <div class="field is-grouped">
             <% if user_signed_in? %>
-              <%= link_to user_path do %>
+              <%= link_to user_path(current_user.id) do %>
               <div class="control button is-info is-inverted">
                 <figure class="image is-32x32 profile">
                   <%= gravatar_image_tag(current_user.email, size: 32, alt: current_user.name) %>

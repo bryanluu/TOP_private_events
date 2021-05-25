@@ -1,0 +1,24 @@
+<h2 class="title">New Event</h2>
+
+<%= simple_form_for [@user, @event] do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title,
+                label: "Title: ",
+                required: true,
+                autofocus: true %>
+    <%= f.input :location,
+                label: "Location: ",
+                required: false,
+                autofocus: true %>
+    <%= f.label :date, "Date: " %>
+    <%= f.date_select :date,
+                required: true,
+                autofocus: true %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, "Create" %>
+  </div>
+<% end %>
