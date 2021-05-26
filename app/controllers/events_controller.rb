@@ -22,7 +22,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all.order("date ASC")
+    @events = Event.all.where(date: Time.now..)
   end
 
   private
