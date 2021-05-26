@@ -11,10 +11,15 @@ class EventsController < ApplicationController
     @event = @user.events.build(event_params)
 
     if @event.save
-      redirect_to user_path(@user)
+      redirect_to @event
     else
       render :new
     end
+  end
+
+  def show
+    @user = User.find(params[:user_id])
+    @event = @user.events.find(params[:id])
   end
 
   private
@@ -29,6 +34,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:title, :location, :date)
+    params.require(:event).permit(:title, :location, :date, :desc)
   end
 end

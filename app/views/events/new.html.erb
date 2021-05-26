@@ -1,23 +1,27 @@
 <h2 class="title">New Event</h2>
-
 <%= simple_form_for [@user, @event] do |f| %>
   <%= f.error_notification %>
-
   <div class="form-inputs">
-    <%= f.input :title,
-                label: "Title: ",
+    <%= f.label :title, "Title: " %>
+    <%= f.text_field :title,
                 required: true,
                 autofocus: true %>
-    <%= f.input :location,
-                label: "Location: ",
+    <br>
+    <%= f.label :location, "Location: " %>
+    <%= f.text_field :location,
                 required: false,
                 autofocus: true %>
+    <br>
     <%= f.label :date, "Date: " %>
     <%= f.date_select :date,
                 required: true,
                 autofocus: true %>
+    <br>
+    <%= f.label :desc, "Description: " %>
+    <%= f.text_area :desc,
+                    required: false,
+                    autofocus: true %>
   </div>
-
   <div class="form-actions">
     <%= f.button :submit, "Create" %>
   </div>

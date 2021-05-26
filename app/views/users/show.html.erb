@@ -4,12 +4,14 @@
 <br>
 <br>
 <h1 class="subtitle"><strong>Events</strong></h2>
-<% if current_user.events.count > 0 %>
-  <ul>
-    <% current_user.events.each do |event| %>
-      <li><%= event.title %></li>
-    <% end %>
-  </ul>
-<% else %>
-  <p class="content">No events</p>
-<% end %>
+<div class="content">
+  <% if current_user.events.count > 0 %>
+    <ul>
+      <% current_user.events.each do |event| %>
+        <li><%= link_to "#{event.title}, #{event.date.to_s}", user_event_path(current_user, event) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No events</p>
+  <% end %>
+</div>
