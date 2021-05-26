@@ -1,6 +1,6 @@
 <h2 class="subtitle">Attendees</h2>
 <% if @event.attendees.any? %>
-  <p class="is-info"><%= @event.attendees.count %> attending:</p>
+  <p class="is-info"><%= @event.attendees.count %> attendee(s):</p>
   <ul>
     <% @event.attendees.order("name ASC").find_each do |attendee| %>
       <li><%= "#{attendee.name} (#{attendee.email})" %></li>

@@ -3,10 +3,14 @@
 <p class="content"><strong>Email:</strong> <%= current_user.email %></h2>
 <br>
 <br>
-<h1 class="subtitle"><strong>Events Created</strong></h2>
-<%= render 'events/list' %>
 <div class="is-grouped">
+  <h1 class="subtitle"><strong>Events Created</strong></h2>
+  <%= render 'events/list' %>
   <%= link_to new_event_path do %>
     <p class="button">New Event</p>
   <% end %>
+</div>
+<div class="is-grouped">
+  <h1 class="subtitle"><strong>Attending</strong></h1>
+  <%= render 'attending' %>
 </div>
