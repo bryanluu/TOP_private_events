@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
+    @events = @user.events
   end
 
   private
@@ -13,7 +14,8 @@ class UsersController < ApplicationController
   end
 
   def authorize_user
-    unless current_user.id.to_s == params[:id]
+    @user = User.find(params[:id])
+    unless current_user == @user
       flash[:alert] = "You must be logged in to access this user"
       redirect_to current_user
     end

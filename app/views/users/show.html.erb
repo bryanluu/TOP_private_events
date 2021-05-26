@@ -3,15 +3,10 @@
 <p class="content"><strong>Email:</strong> <%= current_user.email %></h2>
 <br>
 <br>
-<h1 class="subtitle"><strong>Events</strong></h2>
-<div class="content">
-  <% if current_user.events.count > 0 %>
-    <ul>
-      <% current_user.events.each do |event| %>
-        <li><%= link_to "#{event.title}, #{event.date.to_s}", user_event_path(current_user, event) %></li>
-      <% end %>
-    </ul>
-  <% else %>
-    <p>No events</p>
+<h1 class="subtitle"><strong>Events Created</strong></h2>
+<%= render 'events/list' %>
+<div class="is-grouped">
+  <%= link_to new_event_path do %>
+    <p class="button">New Event</p>
   <% end %>
 </div>

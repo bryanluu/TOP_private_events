@@ -1,6 +1,5 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
-  before_action :authorize_user, only: [:create]
 
   def new
     @user = current_user
@@ -8,6 +7,7 @@ class EventsController < ApplicationController
   end
 
   def create
+    @user = current_user
     @event = @user.events.build(event_params)
 
     if @event.save
@@ -18,20 +18,14 @@ class EventsController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:user_id])
-    @event = @user.events.find(params[:id])
+    @event = Event.find(params[:id])
+  end
+
+  def index
+    @events = Event.all.order("date ASC")
   end
 
   private
-
-  def authorize_user
-    @user = User.find(params[:user_id])
-    unless current_user == @user
-      flash[:alert] = "You must be logged in to access this user"
-      redirect_to current_user
-    end
-    # flash[:notice] = "Current user: #{current_user.email}, id: #{current_user.id}"
-  end
 
   def event_params
     params.require(:event).permit(:title, :location, :date, :desc)

@@ -3,5 +3,11 @@
   <p><strong>Date:</strong> <%= @event.date.to_s %></p>
   <p><strong>Location:</strong> <%= @event.location.blank? ? "not specified" : @event.location %></p>
   <p><strong>Description:</strong><br>
-  <%= @event.desc %></p>
+    <%= @event.desc %></p>
+  <p><strong>Creator: <% if current_user == @event.creator %>
+        <%= link_to "#{@event.creator.name} (#{@event.creator.email})", user_path(@event.creator) %>
+      <% else %>
+        <%= "#{@event.creator.name} (#{@event.creator.email})" %>
+      <% end %>
+    </strong></p>
 </div>

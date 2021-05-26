@@ -1,0 +1,11 @@
+<div class="content">
+  <% if @events.count > 0 %>
+    <ul>
+      <% @events.each do |event| %>
+        <li><strong><%= event.date.to_s %></strong>: <%= link_to "#{event.title} (creator: #{event.creator.email})", event_path(event) %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No events</p>
+  <% end %>
+</div>
