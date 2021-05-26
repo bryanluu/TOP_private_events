@@ -11,6 +11,14 @@
   <% end %>
 </div>
 <div class="is-grouped">
-  <h1 class="subtitle"><strong>Attending</strong></h1>
+  <h1 class="subtitle"><strong>Previously Attended Events</strong></h1>
+  <% tmp = @events; @events = @user.attended_events.where(date: ...Time.now) %>
   <%= render 'attending' %>
+  <% @events = tmp %>
+</div>
+<div class="is-grouped">
+  <h1 class="subtitle"><strong>Upcoming Events</strong></h1>
+  <% tmp = @events; @events = @user.attended_events.where(date: Time.now..) %>
+  <%= render 'attending' %>
+  <% @events = tmp %>
 </div>

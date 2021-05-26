@@ -1,8 +1,6 @@
-<% if @user.attended_events.any? %>
-  <p class="is-info"><%= @user.attended_events.count %> Event(s):</p>
-  <% tmp = @events; @events = @user.attended_events %>
+<% if @events.any? %>
+  <p class="is-info"><%= @events.count %> Event(s):</p>
   <%= render "events/list" %>
-  <% @events = tmp %>
 <% else %>
   <p class="is-info">None</p>
 <% end %>
