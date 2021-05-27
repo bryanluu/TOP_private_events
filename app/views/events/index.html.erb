@@ -1,9 +1,9 @@
 <h1 class="title">Upcoming Events</h1>
-<% tmp = @events; @events = @events.where(date: Time.now..) %>
+<% tmp = @events; @events = @events.past %>
 <%= render 'list' %>
 <% @events = tmp %>
 
 <h1 class="title">Past Events</h1>
-<% tmp = @events; @events = @events.where(date: ...Time.now) %>
+<% tmp = @events; @events = @events.upcoming %>
 <%= render 'list' %>
 <% @events = tmp %>

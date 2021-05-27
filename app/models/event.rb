@@ -5,4 +5,15 @@ class Event < ApplicationRecord
 
   validates :title, presence: true
   validates :date, presence: true
+
+  scope :before, ->(date) { where(date: ...date) }
+  scope :after, ->(date) { where(date: date..) }
+
+  def self.past
+    self.before(Time.now)
+  end
+
+  def self.upcoming
+    self.after(Time.now)
+  end
 end
