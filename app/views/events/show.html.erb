@@ -16,8 +16,11 @@
     <%= render 'attendees' %>
   </div>
   <div class="control">
+    <%= link_to event_path(@event) do %>
+      <button class="button is-small is-info">Register</button>
+    <% end %>
     <%= link_to user_path(current_user) do %>
-      <p class="button is-small">Back to User Page</p>
+      <button class="button is-small">Back to User Page</button>
     <% end %>
   </div>
 </div>
