@@ -1,21 +1,23 @@
-<h1 class="title"><%= @event.title %></h1>
-<div class="content">
-  <p><strong>Date:</strong> <%= @event.date.to_s %></p>
-  <p><strong>Location:</strong> <%= @event.location.blank? ? "not specified" : @event.location %></p>
-  <p><strong>Description:</strong><br>
-    <%= @event.desc %></p>
-  <p><strong>Creator: <% if current_user == @event.creator %>
-        <%= link_to "#{@event.creator.name} (#{@event.creator.email})", user_path(@event.creator) %>
-      <% else %>
-        <%= "#{@event.creator.name} (#{@event.creator.email})" %>
-      <% end %>
-    </strong></p>
-</div>
-<div class="content">
-  <%= render 'attendees' %>
-</div>
-<div class="control">
-  <%= link_to user_path(current_user) do %>
-    <p class="button is-small">Back to User Page</p>
-  <% end %>
+<div class="section">
+  <h1 class="title"><%= @event.title %></h1>
+  <div class="content">
+    <p><strong>Date:</strong> <%= @event.date.to_s %></p>
+    <p><strong>Location:</strong> <%= @event.location.blank? ? "not specified" : @event.location %></p>
+    <p><strong>Description:</strong><br>
+      <%= @event.desc %></p>
+    <p><strong>Creator: <% if current_user == @event.creator %>
+          <%= link_to "#{@event.creator.name} (#{@event.creator.email})", user_path(@event.creator) %>
+        <% else %>
+          <%= "#{@event.creator.name} (#{@event.creator.email})" %>
+        <% end %>
+      </strong></p>
+  </div>
+  <div class="content">
+    <%= render 'attendees' %>
+  </div>
+  <div class="control">
+    <%= link_to user_path(current_user) do %>
+      <p class="button is-small">Back to User Page</p>
+    <% end %>
+  </div>
 </div>

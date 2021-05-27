@@ -1,31 +1,33 @@
-<h2 class="title">New Event</h2>
-<%= simple_form_for @event do |f| %>
-  <%= f.error_notification %>
-  <div class="form-inputs">
-    <%= f.label :title, "Title: " %>
-    <%= f.text_field :title,
+<div class="section">
+  <h2 class="title">New Event</h2>
+  <%= simple_form_for @event do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs">
+      <%= f.label :title, "Title: " %>
+      <%= f.text_field :title,
                 required: true,
                 autofocus: true %>
-    <br>
-    <%= f.label :location, "Location: " %>
-    <%= f.text_field :location,
+      <br>
+      <%= f.label :location, "Location: " %>
+      <%= f.text_field :location,
                 required: false,
                 autofocus: true %>
-    <br>
-    <%= f.label :date, "Date: " %>
-    <%= f.date_select :date,
+      <br>
+      <%= f.label :date, "Date: " %>
+      <%= f.date_select :date,
                 required: true,
                 autofocus: true %>
-    <br>
-    <%= f.label :desc, "Description: " %>
-    <%= f.text_area :desc,
+      <br>
+      <%= f.label :desc, "Description: " %>
+      <%= f.text_area :desc,
                     required: false,
                     autofocus: true %>
-  </div>
-  <div class="form-actions">
-    <%= f.button :submit, "Create", class: "button is-small" %>
-    <%= link_to 'javascript:history.back()' do %>
-      <p class="button is-small">Cancel</p>
-    <% end %>
-  </div>
-<% end %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Create", class: "button is-small is-info" %>
+      <%= link_to 'javascript:history.back()' do %>
+        <p class="button is-small">Cancel</p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

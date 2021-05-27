@@ -1,24 +1,26 @@
-<h1 class="title">User</h1>
-<p class="content"><strong>Name:</strong> <%= current_user.name %></h2>
-<p class="content"><strong>Email:</strong> <%= current_user.email %></h2>
-<br>
-<br>
-<div class="is-grouped">
-  <h1 class="subtitle"><strong>Events Created</strong></h2>
-  <%= render 'events/list' %>
-  <%= link_to new_event_path do %>
-    <p class="button is-small">New Event</p>
-  <% end %>
+<div class="section">
+  <h1 class="title">User</h1>
+  <p class="content"><strong>Name:</strong> <%= current_user.name %></p>
+  <p class="content"><strong>Email:</strong> <%= current_user.email %></p>
 </div>
-<div class="is-grouped">
-  <h1 class="subtitle"><strong>Previously Attended Events</strong></h1>
-  <% tmp = @events; @events = @user.attended_events.past %>
-  <%= render 'attending' %>
-  <% @events = tmp %>
-</div>
-<div class="is-grouped">
-  <h1 class="subtitle"><strong>Upcoming Events</strong></h1>
-  <% tmp = @events; @events = @user.attended_events.upcoming %>
-  <%= render 'attending' %>
-  <% @events = tmp %>
+<div class="section">
+  <div class="box">
+    <h1 class="subtitle"><strong>Events Created</strong></h2>
+    <%= render 'events/list' %>
+    <%= link_to new_event_path do %>
+      <p class="button is-small is-info">New Event</p>
+    <% end %>
+  </div>
+  <div class="box">
+    <h1 class="subtitle"><strong>Previously Attended Events</strong></h1>
+    <% tmp = @events; @events = @user.attended_events.past %>
+    <%= render 'attending' %>
+    <% @events = tmp %>
+  </div>
+  <div class="box">
+    <h1 class="subtitle"><strong>Upcoming Events</strong></h1>
+    <% tmp = @events; @events = @user.attended_events.upcoming %>
+    <%= render 'attending' %>
+    <% @events = tmp %>
+  </div>
 </div>
