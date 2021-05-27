@@ -2,8 +2,12 @@
 <% tmp = @events; @events = @events.past %>
 <%= render 'list' %>
 <% @events = tmp %>
-
 <h1 class="title">Past Events</h1>
 <% tmp = @events; @events = @events.upcoming %>
 <%= render 'list' %>
 <% @events = tmp %>
+<div class="content">
+  <%= link_to new_event_path do %>
+    <p class="button is-small">New Event</p>
+  <% end %>
+</div>

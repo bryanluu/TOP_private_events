@@ -14,3 +14,8 @@
 <div class="content">
   <%= render 'attendees' %>
 </div>
+<div class="control">
+  <%= link_to user_path(current_user) do %>
+    <p class="button is-small">Back to User Page</p>
+  <% end %>
+</div>

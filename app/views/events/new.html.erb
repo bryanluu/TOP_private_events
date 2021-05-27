@@ -23,6 +23,9 @@
                     autofocus: true %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit, "Create" %>
+    <%= f.button :submit, "Create", class: "button is-small" %>
+    <%= link_to 'javascript:history.back()' do %>
+      <p class="button is-small">Cancel</p>
+    <% end %>
   </div>
 <% end %>
