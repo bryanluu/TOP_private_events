@@ -22,7 +22,20 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = Event.all.includes(:attendees)
+  end
+
+  def register
+    @event = Event.find(params[:id])
+    already_present = @event.attendees.include?(current_user)
+    if already_present
+      current_user.attended_events.delete(@event.id)
+    else
+      @event.attendees << current_user
+    end
+
+    puts "Register #{current_user.name}: #{already_present}"
+    render :show
   end
 
   private

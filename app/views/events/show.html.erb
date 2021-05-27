@@ -16,8 +16,16 @@
     <%= render 'attendees' %>
   </div>
   <div class="control">
-    <%= link_to event_path(@event) do %>
-      <button class="button is-small is-info">Register</button>
+    <% if @event.date >= Date.new(Time.now.year, Time.now.month, Time.now.day) %>
+    <% if @event.attendees.include?(current_user) %>
+      <%= link_to event_path(@event), method: :put do %>
+        <button class="button is-small is-danger">De-register</button>
+      <% end %>
+    <% else %>
+      <%= link_to event_path(@event), method: :put do %>
+        <button class="button is-small is-info">Register</button>
+      <% end %>
+    <% end %>
     <% end %>
     <%= link_to user_path(current_user) do %>
       <button class="button is-small">Back to User Page</button>
