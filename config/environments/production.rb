@@ -116,5 +116,25 @@ Rails.application.configure do
   # these configuration options.
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
-  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+  # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session# Devise
+  
+#Added per active admin install instructions
+config.action_mailer.default_url_options = { :host => 'immense-mesa-24806.herokuapp.com' }
+
+
+#These settings are for the sending out email for active admin and consequently the   devise mailer
+ActionMailer::Base.delivery_method = :smtp
+ActionMailer::Base.perform_deliveries = false
+ActionMailer::Base.raise_delivery_errors = true
+ActionMailer::Base.smtp_settings = 
+{
+
+  :address            => 'smtp.gmail.com',
+  :port               => 587,
+  :domain             => 'gmail.com', #you can also use google.com
+  :authentication     => :plain,
+  :user_name          => 'XXXXX@gmail.com',
+  :password           => 'XXXXXXX'
+}
+
 end
