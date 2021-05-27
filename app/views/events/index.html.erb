@@ -1,10 +1,10 @@
 <div class="section">
   <h1 class="title">Upcoming Events</h1>
-  <% tmp = @events; @events = @events.past %>
+  <% tmp = @events; @events = @events.upcoming %>
   <%= render 'list' %>
   <% @events = tmp %>
   <h1 class="title">Past Events</h1>
-  <% tmp = @events; @events = @events.upcoming %>
+  <% tmp = @events; @events = @events.past %>
   <%= render 'list' %>
   <% @events = tmp %>
   <div class="content">
