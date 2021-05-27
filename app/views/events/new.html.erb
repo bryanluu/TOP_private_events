@@ -3,29 +3,36 @@
   <%= simple_form_for @event do |f| %>
     <%= f.error_notification %>
     <div class="form-inputs">
-      <%= f.label :title, "Title: " %>
-      <%= f.text_field :title,
+      <div class="column">
+        <%= f.label :title, "Title: " %>
+        <%= f.text_field :title,
                 required: true,
                 autofocus: true %>
-      <br>
-      <%= f.label :location, "Location: " %>
-      <%= f.text_field :location,
+      </div>
+      <div class="column">
+        <%= f.label :location, "Location: " %>
+        <%= f.text_field :location,
                 required: false,
                 autofocus: true %>
-      <br>
-      <%= f.label :date, "Date: " %>
-      <%= f.date_select :date,
+      </div>
+      <div class="column">
+        <%= f.label :date, "Date: " %>
+        <%= f.date_select :date,
                 required: true,
                 autofocus: true %>
-      <br>
-      <%= f.label :desc, "Description: " %>
-      <%= f.text_area :desc,
+      </div>
+      <div class="column">
+        <%= f.label :desc, "Description: " %><br>
+        <%= f.text_area :desc,
                     required: false,
-                    autofocus: true %>
+                    autofocus: true,
+                    input_html: { class: "textarea" } %>
+      </div>
     </div>
-    <div class="form-actions">
+    <br>
+    <div class="form-actions column">
       <%= f.button :submit, "Create", class: "button is-small is-info" %>
-      <%= link_to 'javascript:history.back()' do %>
+      <%= link_to user_path(current_user) do %>
         <button class="button is-small">Cancel</button>
       <% end %>
     </div>
